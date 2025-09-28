@@ -1,72 +1,293 @@
-body{
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    line-height: 1,6;
-    background: #f9f9f9;
-    color: #333;
-    text-transform: capitalize;
-}
-header{
-    background: #004080;
-    color: white;
-    padding: 10px 40px;
-    display: flex;
-    justify-content: space-between;
-    text-align: center;
-    border-radius: 0 0 8px 8px;
-}
-header h1{
-    font-size: 20px;
-    margin: 0;
-}
-header nav a{
-    text-decoration: none;
-    margin-left: 20px;
-    color: white;
-    font-size: 15px;
-}
-header nav a:hover{
-    text-decoration: underline;
-}
-.main{
-    background: #cfefff;
-    text-align: center;
-    padding: 90px 20px;
-}
-.main h2{
-    font-size: 28px;
-    color: #0a2a66;
-    margin-bottom: 15px;
-}
-. main p{
-    max-width: 400px;
-    margin: 0 auto;
-    font-size: 16px;
-}
-.info{
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    flex-grow: 1fr;
-    padding: 40px 20px;
-    background: white;
-}
-.box{
-    flex: 1;
-    margin: 0 20px;
-}
-.box h2{
-    color: #0a2a66;
-    margin-bottom: 10px;
-}
-footer{
-    background: #222;
-    color: white;
-    text-align: center;
-    padding: 15px;
-    border-radius: 8px 8px 0 0;
-    font-size: 14px;
-    margin-top: 20px;
-}
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css");
+/* CSS Variables for consistent theming */
+        :root {
+            --primary-color: #004080;
+            --secondary-color: #0a2a66;
+            --accent-color: #cfefff;
+            --text-color: #333;
+            --light-bg: #f9f9f9;
+            --dark-bg: #222;
+            --white: #fff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: var(--light-bg);
+            color: var(--text-color);
+            text-transform: capitalize;
+        }
+
+        /* Header Styles */
+        header {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            margin-left: 1.5rem;
+            color: var(--white);
+            font-size: 1rem;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: var(--transition);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Main Section */
+        .main {
+            background: linear-gradient(135deg, var(--accent-color) 0%, #a8d8ff 100%);
+            text-align: center;
+            padding: 5rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .main::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+        }
+
+        .main h2 {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+            font-weight: 700;
+        }
+
+        .main p {
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            position: relative;
+            z-index: 1;
+            line-height: 1.8;
+        }
+
+        /* Info Section */
+        .info {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 4rem 2rem;
+            background: var(--white);
+            gap: 2rem;
+        }
+
+        .box {
+            flex: 1;
+            min-width: 300px;
+            padding: 2rem;
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .box h2 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .box p {
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .box ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .box li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .box li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-bg);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        footer h3 {
+            color: var(--accent-color);
+            margin: 0.5rem 0;
+        }
+
+        .social-icons {
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            color: var(--white);
+            font-size: 1.5rem;
+            margin: 0 0.5rem;
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .logo-container {
+                width: 100%;
+                justify-content: space-between;
+                margin-bottom: 1rem;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+            }
+
+            nav.active {
+                display: flex;
+            }
+
+            nav a {
+                margin: 0.5rem 0;
+                padding: 0.8rem;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .main {
+                padding: 3rem 1rem;
+            }
+
+            .main h2 {
+                font-size: 2rem;
+            }
+
+            .info {
+                padding: 2rem 1rem;
+                flex-direction: column;
+            }
+
+            .box {
+                min-width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.2rem;
+            }
+
+            .main h2 {
+                font-size: 1.8rem;
+            }
+
+            .main p {
+                font-size: 1rem;
+            }
+        }

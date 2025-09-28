@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporter Profile - HRMS</title>
+    <link rel="stylesheet" href="../users/users.css">
+</head>
+<body>
+    <div class="profile-container">
+        <div class="profile-header">
+            <div class="profile-avatar">
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="profile-info">
+                <h1>muhammad mustapha</h1>
+                <p>Case Reporter</p>
+                <p>Damaturu Community</p>
+                <span class="role">Verified Reporter</span>
+            </div>
+        </div>
+        
+        <div class="profile-content">
+            <div class="profile-sidebar">
+                <ul class="profile-nav">
+                    <li><a href="#overview" class="active" data-section="overview"><i class="fas fa-home"></i> Overview</a></li>
+                    <li><a href="#my-cases" data-section="my-cases"><i class="fas fa-folder-open"></i> My Cases</a></li>
+                    <li><a href="#report-case" data-section="report-case"><i class="fas fa-plus-circle"></i> Report New Case</a></li>
+                    <li><a href="#profile" data-section="profile"><i class="fas fa-user-edit"></i> Edit Profile</a></li>
+                    <li><a href="#security" data-section="security"><i class="fas fa-shield-alt"></i> Security</a></li>
+                    <li class="sign-out"><a href="#" data-section=" sign out"><i class="fas fa-sign-out"></i>signout</a></li>
+                </ul>
+            </div>
+            
+            <div class="profile-main">
+                <!-- Overview Section -->
+                <div class="profile-section active" id="overview">
+                    <h2 class="section-title"><i class="fas fa-home"></i> Reporter Dashboard</h2>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-value">12</div>
+                            <div class="stat-label">Total Cases Reported</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">8</div>
+                            <div class="stat-label">Cases In Progress</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">3</div>
+                            <div class="stat-label">Cases Resolved</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">95%</div>
+                            <div class="stat-label">Satisfaction Rate</div>
+                        </div>
+                    </div>
+                    
+                    <h3 style="color: var(--secondary-color); margin: 25px 0 15px;"><i class="fas fa-history"></i> Recent Activity</h3>
+                    
+                    <div class="case-details">
+                        <div class="detail-item">
+                            <div class="detail-label">Last Case Reported:</div>
+                            <div class="detail-value">October 12, 2023 - Neighborhood Dispute</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Average Response Time:</div>
+                            <div class="detail-value">2.3 days</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Member Since:</div>
+                            <div class="detail-value">March 15, 2022</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Verification Status:</div>
+                            <div class="detail-value"><span class="status-badge status-resolved">Verified</span></div>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 30px;">
+                        <h3 style="color: var(--secondary-color); margin-bottom: 15px;"><i class="fas fa-bullhorn"></i> Quick Actions</h3>
+                        <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                            <button class="btn" onclick="showSection('report-case')">
+                                <i class="fas fa-plus"></i> Report New Case
+                            </button>
+                            <button class="btn btn-secondary" onclick="showSection('my-cases')">
+                                <i class="fas fa-list"></i> View My Cases
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- My Cases Section -->
+                <div class="profile-section" id="my-cases">
+                    <h2 class="section-title"><i class="fas fa-folder-open"></i> My Reported Cases</h2>
+                    
+                    <div class="success-message" id="caseSuccess">
+                        <i class="fas fa-check-circle"></i> Case status updated successfully.
+                    </div>
+                    
+                    <table class="cases-table">
+                        <thead>
+                            <tr>
+                                <th>Case ID</th>
+                                <th>Type</th>
+                                <th>Date Reported</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="case-id">HRMS-C-2023-078</td>
+                                <td>Public Nuisance</td>
+                                <td>Oct 12, 2023</td>
+                                <td><span class="status-badge status-in-progress">In Progress</span></td>
+                                <td>
+                                    <button class="btn btn-small" onclick="viewCaseDetails('HRMS-C-2023-078')">
+                                        <i class="fas fa-eye"></i> View
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="case-id">HRMS-C-2023-065</td>
+                                <td>Property Dispute</td>
+                                <td>Sep 28, 2023</td>
+                                <td><span class="status-badge status-resolved">Resolved</span></td>
+                                <td>
+                                    <button class="btn btn-small" onclick="viewCaseDetails('HRMS-C-2023-065')">
+                                        <i class="fas fa-eye"></i> View
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="case-id">HRMS-C-2023-054</td>
+                                <td>Noise Complaint</td>
+                                <td>Sep 15, 2023</td>
+                                <td><span class="status-badge status-closed">Closed</span></td>
+                                <td>
+                                    <button class="btn btn-small" onclick="viewCaseDetails('HRMS-C-2023-054')">
+                                        <i class="fas fa-eye"></i> View
+                                    </td>
+                            </tr>
+                            <tr>
+                                <td class="case-id">HRMS-C-2023-042</td>
+                                <td>Environmental Issue</td>
+                                <td>Aug 30, 2023</td>
+                                <td><span class="status-badge status-resolved">Resolved</span></td>
+                                <td>
+                                    <button class="btn btn-small" onclick="viewCaseDetails('HRMS-C-2023-042')">
+                                        <i class="fas fa-eye"></i> View
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div style="margin-top: 20px; text-align: center;">
+                        <button class="btn btn-secondary">
+                            <i class="fas fa-history"></i> Load More Cases
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Report Case Section -->
+                <div class="profile-section" id="report-case">
+                    <h2 class="section-title"><i class="fas fa-plus-circle"></i> Report New Case</h2>
+                    
+                    <div class="success-message" id="reportSuccess">
+                        <i class="fas fa-check-circle"></i> Your case has been reported successfully. Reference ID: <strong id="caseRef"></strong>
+                    </div>
+                    
+                    <form id="reportForm">
+                        <div class="form-group">
+                            <label for="caseType">Case Type</label>
+                            <select id="caseType" name="caseType" required>
+                                <option value="">Select case type</option>
+                                <option value="dispute">Neighborhood Dispute</option>
+                                <option value="nuisance">Public Nuisance</option>
+                                <option value="property">Property Issue</option>
+                                <option value="environmental">Environmental Concern</option>
+                                <option value="noise">Noise Complaint</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="caseTitle">Case Title</label>
+                            <input type="text" id="caseTitle" name="caseTitle" placeholder="Brief title for your case" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="caseDescription">Case Description</label>
+                            <textarea id="caseDescription" name="caseDescription" placeholder="Please provide detailed information about the issue..." required></textarea>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="caseLocation">Location</label>
+                                <input type="text" id="caseLocation" name="caseLocation" placeholder="Where did this occur?" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="caseDate">Date of Incident</label>
+                                <input type="text" id="caseDate" name="caseDate" placeholder="When did this occur?" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="caseUrgency">Urgency Level</label>
+                            <select id="caseUrgency" name="caseUrgency" required>
+                                <option value="low">Low - No immediate action needed</option>
+                                <option value="medium" selected>Medium - Requires attention within days</option>
+                                <option value="high">High - Requires immediate attention</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" required> I confirm that the information provided is accurate to the best of my knowledge
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn" id="reportBtn">
+                            <i class="fas fa-paper-plane"></i> Submit Case Report
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Edit Profile Section -->
+                <div class="profile-section" id="profile">
+                    <h2 class="section-title"><i class="fas fa-user-edit"></i> Edit Profile</h2>
+                    
+                    <div class="success-message" id="profileSuccess">
+                        <i class="fas fa-check-circle"></i> Your profile has been updated successfully.
+                    </div>
+                    
+                    <form id="profileForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name</label>
+                                <input type="text" id="firstName" name="firstName" value="Muhammad" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name</label>
+                                <input type="text" id="lastName" name="lastName" value="Muhammad" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" value="phayya@example.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" value="+2347061116148" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                            <textarea id="address" name="address">123 Community Road, Damaturu, Yobe State</textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="occupation">Occupation</label>
+                            <input type="text" id="occupation" name="occupation" value="Teacher">
+                        </div>
+                        
+                        <button type="submit" class="btn" id="saveProfileBtn">
+                            <i class="fas fa-save"></i> Save Changes
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Security Section -->
+                <div class="profile-section" id="security">
+                    <h2 class="section-title"><i class="fas fa-shield-alt"></i> Security Settings</h2>
+                    
+                    <div class="success-message" id="securitySuccess">
+                        <i class="fas fa-check-circle"></i> Your password has been updated successfully.
+                    </div>
+                    
+                    <form id="securityForm">
+                        <div class="form-group">
+                            <label for="currentPassword">Current Password</label>
+                            <input type="password" id="currentPassword" name="currentPassword" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="newPassword">New Password</label>
+                            <input type="password" id="newPassword" name="newPassword" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm New Password</label>
+                            <input type="password" id="confirmPassword" name="confirmPassword" required>
+                        </div>
+                        
+                        <button type="submit" class="btn" id="saveSecurityBtn">
+                            <i class="fas fa-key"></i> Update Password
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/users/users.js"></script>
+</body>
+</html>
